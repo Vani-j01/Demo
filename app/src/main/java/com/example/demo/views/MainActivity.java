@@ -65,6 +65,9 @@ public class MainActivity extends AppCompatActivity {
         mAuth= FirebaseAuth.getInstance();
         FirebaseDatabase database= FirebaseDatabase.getInstance();
         SignIn();
+        String id = mAuth.getCurrentUser().getUid().toString();
+        reference= database.getReference();
+        reference.child("Users").child(id).setValue(null);
 
         //Slideshow
         slideshowDataModelArrayList= new ArrayList<>();

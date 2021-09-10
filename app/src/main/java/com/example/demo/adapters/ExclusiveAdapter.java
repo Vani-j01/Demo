@@ -71,7 +71,8 @@ public class ExclusiveAdapter extends RecyclerView.Adapter<ExclusiveAdapter.View
                 String id = model.getId();
                 int temp = model.getCount() + 1;
                 FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
-//                firebaseFirestore.collection("User").document(userId).;
+                firebaseFirestore.collection("Products").document(id).update("count", temp);
+                notifyDataSetChanged();
 
             }
         });
@@ -83,6 +84,7 @@ public class ExclusiveAdapter extends RecyclerView.Adapter<ExclusiveAdapter.View
                 int temp = model.getCount() - 1;
                 FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
                 firebaseFirestore.collection("Products").document(id).update("count", temp);
+                notifyDataSetChanged();
             }
         });
 
