@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".views.MainActivity">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/Title_Home"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:textSize="@dimen/_12sdp"
+        android:drawableTop="@drawable/ic_carrot"
+        android:layout_margin="@dimen/_10sdp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:drawableTint="@color/black"
+        />
+
+
+
+    <SearchView
+        android:id="@+id/search"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/searchbar_background"
+        android:clickable="true"
+        android:focusable="true"
+        android:iconifiedByDefault="false"
+        android:lineSpacingExtra="0dp"
+        android:lineSpacingMultiplier="0"
+        android:queryBackground="@color/grey"
+        android:queryHint="Search Store"
+        android:textSize="@dimen/_12sdp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/title"
+        android:layout_marginStart="@dimen/_20sdp"
+        android:layout_marginEnd="@dimen/_20sdp"
+        android:layout_marginTop="@dimen/_10sdp"/>
+
+
+    <com.smarteist.autoimageslider.SliderView
+        android:id="@+id/slideshow"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_115sdp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/search"
+        android:layout_margin="@dimen/_20sdp"
+        app:sliderAnimationDuration="600"
+        app:sliderAutoCycleDirection="back_and_forth"
+        app:sliderIndicatorEnabled="true"
+        app:sliderIndicatorGravity="center_horizontal|bottom"
+        app:sliderIndicatorMargin="@dimen/_15sdp"
+        app:sliderIndicatorOrientation="horizontal"
+        app:sliderIndicatorPadding="@dimen/_4sdp"
+        app:sliderIndicatorRadius="@dimen/_2sdp"
+        app:sliderIndicatorSelectedColor="@color/green"
+        app:sliderIndicatorUnselectedColor="@color/grey"
+        app:sliderScrollTimeInSec="1"
+        app:layout_constraintCircleRadius="@dimen/_15sdp"
+/>
+
+
+ <RelativeLayout
+     android:id="@+id/rel_exoffer"
+     android:layout_width="match_parent"
+     android:layout_height="wrap_content"
+     app:layout_constraintStart_toStartOf="parent"
+     app:layout_constraintEnd_toEndOf="parent"
+     app:layout_constraintTop_toBottomOf="@+id/slideshow"
+     app:layout_constraintBottom_toTopOf="@+id/exclusiveOffer"
+     android:layout_marginStart="@dimen/_20sdp"
+     android:layout_marginEnd="@dimen/_20sdp"
+     android:layout_marginTop="@dimen/_20sdp"
+     android:layout_marginBottom="@dimen/_10sdp"
+     >
+
+     <TextView
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:text="Exclusive Offer"
+         android:textSize="@dimen/_18sdp"
+         android:textColor="@color/black"
+         android:textStyle="bold"
+         android:layout_alignParentStart="true"/>
+
+     <TextView
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:text="See all"
+         android:textColor="@color/green"
+         android:textSize="@dimen/_12sdp"
+         android:layout_alignParentEnd="true"/>
+     
+ </RelativeLayout>
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/exclusiveOffer"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/_200sdp"
+        android:layout_marginStart="@dimen/_20sdp"
+        app:layout_constraintBottom_toTopOf="@id/rel_groc"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/rel_exoffer" />
+
+
+
+
+
+    <RelativeLayout
+        android:id="@+id/rel_groc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/exclusiveOffer"
+        android:layout_margin="@dimen/_20sdp"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Groceries"
+            android:textSize="@dimen/_18sdp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:layout_alignParentStart="true"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="See all"
+            android:textColor="@color/green"
+            android:textSize="@dimen/_12sdp"
+            android:layout_alignParentEnd="true"/>
+
+
+    </RelativeLayout>
+
+<androidx.recyclerview.widget.RecyclerView
+    android:id="@+id/groceries"
+    android:layout_width="0dp"
+    android:layout_height="@dimen/_90sdp"
+    android:layout_marginStart="@dimen/_20sdp"
+    android:layout_marginTop="@dimen/_10sdp"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintTop_toBottomOf="@id/rel_groc"
+    app:layout_constraintBottom_toTopOf="@id/rel_bestsell"/>
+
+
+
+    <RelativeLayout
+        android:id="@+id/rel_bestsell"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/groceries"
+        app:layout_constraintBottom_toTopOf="@+id/bestSell"
+        android:layout_marginStart="@dimen/_20sdp"
+        android:layout_marginEnd="@dimen/_20sdp"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:layout_marginBottom="@dimen/_10sdp"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Best Selling"
+            android:textSize="@dimen/_18sdp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:layout_alignParentStart="true"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="See all"
+            android:textColor="@color/green"
+            android:textSize="@dimen/_12sdp"
+            android:layout_alignParentEnd="true"/>
+
+
+    </RelativeLayout>
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/bestSell"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/_200sdp"
+        android:layout_marginStart="@dimen/_20sdp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rel_bestsell"
+        android:layout_margin="@dimen/_10sdp"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
