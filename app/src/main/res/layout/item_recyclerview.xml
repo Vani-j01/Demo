@@ -72,10 +72,12 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
-                        android:gravity="center_horizontal"
+                        android:gravity="center"
                         android:background="@drawable/button_layout"
                         android:layout_alignParentEnd="true"
                         android:layout_alignParentBottom="true"
+                        android:layout_toEndOf="@+id/price"
+                        android:layout_marginLeft="@dimen/_20sdp"
                         android:padding="@dimen/_5sdp">
 
 
@@ -85,7 +87,10 @@
                             android:layout_height="wrap_content"
                             android:clickable="true"
                             android:background="@color/green"
-                            android:padding="@dimen/_8sdp"
+                            android:paddingTop="@dimen/_4sdp"
+                            android:paddingBottom="@dimen/_4sdp"
+                            android:paddingLeft="@dimen/_4sdp"
+                            android:paddingRight="@dimen/_4sdp"
                             android:src="@drawable/ic_minus"/>
 
                         <TextView
@@ -94,8 +99,8 @@
                             android:layout_height="wrap_content"
                             android:text="1"
                             android:textSize="@dimen/_14sdp"
-                            android:paddingTop="@dimen/_8sdp"
-                            android:paddingBottom="@dimen/_8sdp"
+                            android:paddingTop="@dimen/_4sdp"
+                            android:paddingBottom="@dimen/_4sdp"
                             android:textColor="@color/white"/>
 
                         <ImageButton
@@ -104,7 +109,10 @@
                             android:layout_height="wrap_content"
                             android:background="@color/green"
                             android:clickable="true"
-                            android:padding="@dimen/_8sdp"
+                            android:paddingTop="@dimen/_4sdp"
+                            android:paddingBottom="@dimen/_4sdp"
+                            android:paddingLeft="@dimen/_4sdp"
+                            android:paddingRight="@dimen/_4sdp"
                             android:src="@drawable/ic_plus"/>
 
 
