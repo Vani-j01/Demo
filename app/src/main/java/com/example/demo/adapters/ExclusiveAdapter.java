@@ -17,24 +17,19 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.demo.R;
 import com.example.demo.model.ProductsDataModel;
 import com.example.demo.views.Details;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 public class ExclusiveAdapter extends RecyclerView.Adapter<ExclusiveAdapter.ViewHolder> {
 
     private ArrayList<ProductsDataModel> productsDataModels;
     private Context context;
-    private DatabaseReference reference;
 
-    public ExclusiveAdapter(ArrayList<ProductsDataModel> productsDataModels, Context context, DatabaseReference reference) {
+    public ExclusiveAdapter(ArrayList<ProductsDataModel> productsDataModels, Context context) {
         this.productsDataModels = productsDataModels;
         this.context = context;
-        this.reference= reference;
     }
 
     @NonNull

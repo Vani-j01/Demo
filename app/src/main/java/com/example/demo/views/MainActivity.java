@@ -1,13 +1,13 @@
 package com.example.demo.views;
 
+import android.os.Bundle;
+import android.util.Log;
+import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import android.os.Bundle;
-import android.util.Log;
-import android.widget.Toast;
 
 import com.example.demo.R;
 import com.example.demo.adapters.ExclusiveAdapter;
@@ -20,8 +20,6 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
@@ -38,7 +36,6 @@ public class MainActivity extends AppCompatActivity {
     private ArrayList<SlideshowDataModel> slideshowDataModelArrayList;
     FirebaseFirestore firebaseFirestore;
     FirebaseAuth mAuth;
-    private DatabaseReference reference;
     private SliderView sliderView;
 
 
@@ -54,8 +51,6 @@ public class MainActivity extends AppCompatActivity {
     private  ArrayList<ProductsDataModel> bestSellingArrayList;
 
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,11 +58,7 @@ public class MainActivity extends AppCompatActivity {
 
         FirebaseApp.initializeApp(this);
         mAuth= FirebaseAuth.getInstance();
-        FirebaseDatabase database= FirebaseDatabase.getInstance();
         SignIn();
-        String id = mAuth.getCurrentUser().getUid().toString();
-        reference= database.getReference();
-        reference.child("Users").child(id).setValue(null);
 
         //Slideshow
         slideshowDataModelArrayList= new ArrayList<>();
@@ -91,6 +82,8 @@ public class MainActivity extends AppCompatActivity {
         bestSellingRecyclerView= findViewById(R.id.bestSell);
         bestSellingArrayList= new ArrayList<>();
         loadBestSelling();
+
+
 
 
 
@@ -130,7 +123,7 @@ public class MainActivity extends AppCompatActivity {
                                 Log.e("TAG", "onSuccess: "+dataModel );
 
                             }
-                            exclusiveAdapter = new ExclusiveAdapter(bestSellingArrayList, MainActivity.this,reference);
+                            exclusiveAdapter = new ExclusiveAdapter(bestSellingArrayList, MainActivity.this);
                             bestSellingRecyclerView.setLayoutManager(new LinearLayoutManager(MainActivity.this, LinearLayoutManager.HORIZONTAL,false));
                             bestSellingRecyclerView.setAdapter(exclusiveAdapter);
                             exclusiveAdapter.notifyDataSetChanged();
@@ -167,7 +160,7 @@ public class MainActivity extends AppCompatActivity {
                                 Log.e("TAG", "onSuccess: "+dataModel );
 
                             }
-                            exclusiveAdapter = new ExclusiveAdapter(productsDataModelArrayList, MainActivity.this,reference);
+                            exclusiveAdapter = new ExclusiveAdapter(productsDataModelArrayList, MainActivity.this);
                             recyclerView.setLayoutManager(new LinearLayoutManager(MainActivity.this, LinearLayoutManager.HORIZONTAL,false));
                             recyclerView.setAdapter(exclusiveAdapter);
                             exclusiveAdapter.notifyDataSetChanged();
